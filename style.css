@@ -193,7 +193,7 @@ nav {
 
 .recomend {
   width: 100%;
-  background-color: #ff9823;
+  background-color: #ffd7c9;
   color: #000;
   padding: 70px 0;
 }
@@ -232,7 +232,7 @@ nav {
   border: none;
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
-  background-color: #ff6600;
+  background-color: #ff7b00;
 }
 
 .footer {
@@ -284,6 +284,10 @@ nav {
   padding: 25px 0;
   display: flex;
   gap: 1rem;
+}
+
+.mob-footer {
+  display: none;
 }
 
 @media screen and (max-width: 425px){
@@ -338,4 +342,71 @@ nav {
     display: grid;;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .email-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  #email-inp {
+    width: 80%;
+    height: 40px;
+  }
+
+  #join-btn {
+    width: 80%;
+    height: 40px;
+    border: none;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .mob-footer {
+    display: flex;
+    width: 85%;
+    margin: auto;
+    padding-top: 30px;
+  }
+
+  .mob-foot {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1;
+  }
+
+  .mob-col1 {
+    width: 100%;
+  }
+
+  .mob-img{
+    width: 40%;
+  }
+
+  select{
+    border:none;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid grey;
+  }
+  
+  select:focus{
+    outline:none;
+  }
+
+  .dropdown {
+    font-size: bold;
+    width: 20%;
+  }
+
+  .mob-icons {
+    padding-top: 50px;
+    display: flex;
+    gap: 2rem;
+  }
+
 }
