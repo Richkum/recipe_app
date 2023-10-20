@@ -32,13 +32,25 @@ async function getapi3(url3) {
     let infos = data.meals
     infos.forEach((food) => {
       latest.innerHTML += `<div class="late">
-      <img class="recip-img" src="${food.strMealThumb}" alt="">
+      <a href="/indexx.html"><img class="recip-img" src="${food.strMealThumb}" alt=""></a>
       <h4>${food.strMeal}</h4>
     </div>`
     })
     console.log(infos)
 }
 getapi3(apiUrl)
+
+let images = document.getElementsByTagName("img");
+for(let i = 0; i < images.length; i++) {
+    let image = images[i];
+    image.onclick = function(event) {
+         window.location.href = "http://127.0.0.1:5501/indexx.html";
+    };
+}
+
+
+// const images = document.getElementsByTagName('img').onClick(  location.href("http://127.0.0.1:5501/indexx.html"))
+
 
 
 // async function getMeals(name) {
