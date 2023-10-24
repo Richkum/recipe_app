@@ -12,8 +12,16 @@ async function getapi(url) {
 
   let data = await response.json();
   console.log(data);
+  const idm = data.meals[0].idMeal
+  console.log(idm);
   let infos = data.meals
+  console.log(infos);
+
+
+  localStorage.setItem('key', JSON.stringify(idm))
   infos.forEach((food) => {
+
+
     h1.innerHTML = `<h2 class="h1">${food.strMeal}</h2>`
 
     imageDiv.innerHTML += `<div class="img-div">
@@ -26,6 +34,10 @@ async function getapi(url) {
   </div> `
   
   })
+
 // console.log(about)
+
 }
 getapi(apiUrl)
+
+

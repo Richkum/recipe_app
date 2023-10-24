@@ -2,6 +2,26 @@ const latest = document.querySelector('.latest')
 const popular = document.querySelector('.popular')
 console.log(popular)
 
+
+const url = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772';
+
+let idm
+async function getUrl() {
+  const response = await fetch(url);
+
+  // h1.addEventListener('click', () => {})
+
+  let data = await response.json();
+  console.log(data);
+   idm = data.meals[0].idMeal
+  console.log(idm);
+
+  localStorage.setItem('key', JSON.stringify(idm))
+
+}
+getUrl()
+
+
 const urlApi = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 
 async function getapi(url) {
@@ -30,9 +50,17 @@ async function getapi3(url3) {
     let data = await response3.json();
     console.log(data);
     let infos = data.meals
+
+    // const winlocation = window.location.search
+    // const newsearch = URLSearchParams(winlocation)
+    // const defaultmealid = urlParams.get("id")
+
+    // if(defaultmealid === idMeal){
+      
+    // }
     infos.forEach((food) => {
       latest.innerHTML += `<div class="late">
-      <a href="/indexx.html"><img class="recip-img" src="${food.strMealThumb}" alt=""></a>
+      <a href="/indexx.html?id=${food.idMeal}"><img class="recip-img" src="${food.strMealThumb}" alt=""></a>
       <h4>${food.strMeal}</h4>
     </div>`
     })

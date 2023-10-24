@@ -201,11 +201,11 @@ body {
   background-color: #ffa500;
   color: #fff;
   border: #ffa500;
-  /* width: 14px; */
+  width: 14px;
 }
 
 .main2 {
-  width: 60%;
+  width: 100%;
 }
 
 .nutrition {
@@ -233,7 +233,7 @@ body {
 }
 
 .fresh-img {
-  width: 25%;
+  width: 50%;
 }
 
 .fresh1 {
@@ -242,7 +242,7 @@ body {
 }
 
 .fresh-p {
-  font: bold;
+  font-weight: bold;
 }
 
 .mob-nav {
@@ -471,6 +471,38 @@ body {
     width: 25%;
     height: auto;
     border-radius: 50%;
+  }
+
+  .main {
+    display: block;
+  }
+
+  .instruct {
+    width: 100%;
+  }
+
+.main2 {
+  width: 100%;
+}
+
+  .fresh-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .fresh-img {
+    width: 49%;
+  }
+  
+  .fresh1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fresh-p {
+    font-weight: bold;
   }
 
 }
