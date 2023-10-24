@@ -58,6 +58,7 @@ async function getapi3(url3) {
     // if(defaultmealid === idMeal){
       
     // }
+
     infos.forEach((food) => {
       latest.innerHTML += `<div class="late">
       <a href="/indexx.html?id=${food.idMeal}"><img class="recip-img" src="${food.strMealThumb}" alt=""></a>
@@ -68,21 +69,21 @@ async function getapi3(url3) {
 }
 getapi3(apiUrl)
 
-let images = document.getElementsByTagName("img");
-for(let i = 0; i < images.length; i++) {
-    let image = images[i];
-    image.onclick = function(event) {
-         window.location.href = "http://127.0.0.1:5501/indexx.html";
-    };
-}
-
-
-// const images = document.getElementsByTagName('img').onClick(  location.href("http://127.0.0.1:5501/indexx.html"))
-
-
-
-// async function getMeals(name) {
-// const data = fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name || ''}`).then(res=>res.json()).then()
-// return data
+// let images = document.getElementsByTagName("img");
+// for(let i = 0; i < images.length; i++) {
+//     let image = images[i];
+//     image.onclick = function(event) {
+//          window.location.href = "http://127.0.0.1:5501/indexx.html";
+//     };
 // }
-// // 
+
+const storedData = JSON.parse(localStorage.getItem('favoris'));
+console.log(storedData);
+if (storedData) {
+  const filteredData = storedData.filter(meal => meal.idMeal === mealId?.mealId);
+  console.log(mealId);
+}
+else {
+  console.log('No data found in local storage.');
+}
+setupCounter(document.querySelector("#counter"));

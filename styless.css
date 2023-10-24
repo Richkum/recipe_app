@@ -205,7 +205,7 @@ body {
 }
 
 .main2 {
-  width: 100%;
+  width: 60%;
 }
 
 .nutrition {
@@ -224,6 +224,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+.recipie {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .fresh-div {
