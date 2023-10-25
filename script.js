@@ -15,66 +15,31 @@ const favoriteBtn = document.querySelector('#favorite')
 favoriteBtn.addEventListener("click", () => {
   const favorite = JSON.parse(localStorage.getItem("favoris") || "[]");
   if (!favorite.includes(mealId)) {
-    favorite.push(mealId);
-    localStorage.setItem("favoris", JSON.stringify(favoris));
-    alert("Successfully Add !");
+    favorite.push(mealId)
+    localStorage.setItem("favoris", JSON.stringify(favoris))
+    alert("Successfully Add !")
   } else {
-    alert("Already in favoris!");
+    alert("Already in favoris!")
   }
-  // console.log( 'your plat favorite' ,favoris);
-});
-
-fetch(apiUrl)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    console.log(data);
-    displayDetailMeals(data.meals);
-  });
-
-function displayDetailMeals(meals) {
-  const mealContainer = document.querySelector('.recipie');
-  meals.forEach((meal) => {
-    const mealCard = document.createElement("div");
-    mealCard.classList.add("reci");
-    mealCard.innerHTML += `
-    <img class="fresh-img" src="  ${meal.strMealThumb}" alt="">
-    <div class="fresh1">
-      <div class="stars">
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-regular fa-star"></i>
-      </div>
-      <p class="fresh-p">  ${meal.strMeal}</p>
-    </div>
-      `;
-    mealContainer.appendChild(mealCard);
-  });
-}
+})
 
 fetch(apiIng)
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    // console.log(data);
     displayDetailsMeals(data.meals);
     displayVideo(data.meals);
   });
 
   function displayVideo(meals) {meals
-    const mealContainer = document.querySelector(".img-div");
-    const mealCard = document.createElement("div");
-    mealCard.classList.add("video");
+    const mealContainer = document.querySelector(".img-div")
     meals.forEach((meal) => {
       if (mealId == meal.idMeal) {
-        var videoURL = meal.strYoutube;
+        const videoURL = meal.strYoutube;
         console.log(videoURL);
-        var splited = videoURL.split("v=");
-        var videoId = splited[1];
+        const splited = videoURL.split("v=");
+        const videoId = splited[1];
         console.log(splited);
 
         const h1 = document.querySelector('.h1')
@@ -83,23 +48,19 @@ fetch(apiIng)
         <h2 class="h1">${meal.strMeal}</h2>
 
         `
-        mealCard.innerHTML += `
+        mealContainer.innerHTML += `
       <iframe width="100%" height="710px" class="videos-food"
         src="https://www.youtube.com/embed/${videoId}">
       </iframe>
-      `;
+      `
       }
-      mealContainer.appendChild(mealCard);
     });
   }
 
+
   function displayDetailsMeals(meals) {
-    const mealContainer = document.querySelector(".ingredients");
-    // console.log(meals);
+    const mealContainer = document.querySelector(".ingredients")
     meals.forEach((meal) => {
-      // const mealCard = document.createElement("div");
-      // // console.log(meal);
-      // mealCard.classList.add("ingredient");
       if (mealId == meal.idMeal) {
         if (
           meal.strIngredient1 != "" ||
@@ -145,58 +106,60 @@ fetch(apiIng)
         ) {
           mealContainer.innerHTML += `
           <div class="ingred-list">
-          <h5>For the crust</h5>
-          <div class="ingred">
-            <i class="fa-regular fa-circle"></i>
-            <p class="ing-p">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
+            <h5>For the crust</h5>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure1}</p>
+              <p>${meal.strIngredient1}</p>
+            </div>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure2}</p>
+              <p>${meal.strIngredient2}</p>
+            </div>
+            <h5>For the cheesecaket</h5>
+            <div class="ingred">
+              <i class="fa-regular fa-circle-check"></i>
+              <p class="ing-ps">${meal.strMeasure3}</p>
+              <p>${meal.strIngredient3}</p>
+            </div>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure4}</p>
+              <p>${meal.strIngredient4}</p>
+            </div>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure5}</p>
+              <p>${meal.strIngredient5}</p>
+            </div>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure6}</p>
+              <p>${meal.strIngredient6}</p>
+            </div>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure7}</p>
+              <p>${meal.strIngredient7}</p>
+            </div>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure8}</p>
+              <p>${meal.strIngredient8}</p>
+            </div>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure9}</p>
+              <p>${meal.strIngredient9}</p>
+            </div>
+            <div class="ingred">
+              <i class="fa-regular fa-circle"></i>
+              <p class="ing-p">${meal.strMeasure10}</p>
+              <p>${meal.strIngredient10}</p>
+            </div>
           </div>
-          <div class="ingred">
-            <i class="fa-regular fa-circle"></i>
-            <p class="ing-p">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
-          </div>
-          <h5>For the cheesecaket</h5>
-          <div class="ingred">
-            <i class="fa-regular fa-circle-check"></i>
-            <p class="ing-ps">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
-          </div>
-          <div class="ingred">
-            <i class="fa-regular fa-circle"></i>
-            <p class="ing-p">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
-          </div>
-          <div class="ingred">
-            <i class="fa-regular fa-circle"></i>
-            <p class="ing-p">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
-          </div>
-          <div class="ingred">
-            <i class="fa-regular fa-circle"></i>
-            <p class="ing-p">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
-          </div>
-          <div class="ingred">
-            <i class="fa-regular fa-circle"></i>
-            <p class="ing-p">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
-          </div>
-
-          <div class="ingred">
-            <i class="fa-regular fa-circle"></i>
-            <p class="ing-p">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
-          </div>
-
-          <div class="ingred">
-            <i class="fa-regular fa-circle"></i>
-            <p class="ing-p">${meal.strMeasure2}</p>
-            <p>${meal.strIngredient2}</p>
-          </div>
-        </div>
-          `;
-          // mealContainer.appendChild(mealCard);
+          `
         }
       }
     });
@@ -211,16 +174,41 @@ fetch(apiIng)
     displayInstruction(data.meals);
   });
 function displayInstruction(meals) {
-  const mealContainer = document.querySelector(".instruct");
-  // const mealCard = document.createElement("div");
-  // mealCard.classList.add("intru");
+  const mealContainer = document.querySelector(".instruct")
   meals.forEach((meal) => {
     if (mealId == meal.idMeal) {
       mealContainer.innerHTML += `
       <p class="numb">1</p>
       <p> ${meal.strInstructions} </p>
-    `;
+    `
     }
-    // mealContainer.appendChild(mealCard);
+  });
+}
+
+fetch(apiUrl)
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+    displayDetailMeals(data.meals);
+  });
+
+function displayDetailMeals(meals) {
+  const mealContainer = document.querySelector('.recipie');
+  meals.forEach((meal) => {
+    mealContainer.innerHTML += `
+    <img class="fresh-img" src="  ${meal.strMealThumb}" alt="">
+    <div class="fresh1">
+      <div class="stars">
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+      </div>
+      <p class="fresh-p">  ${meal.strMeal}</p>
+    </div>
+      `
   });
 }
